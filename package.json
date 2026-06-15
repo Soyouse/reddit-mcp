@@ -1,0 +1,28 @@
+{
+  "name": "reddit-mcp",
+  "version": "0.1.0",
+  "description": "MCP maison — piloter N comptes Reddit comme un humain (couverture API 100%, multi-comptes, anti-ban).",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "bin": { "reddit-mcp": "server.js" },
+  "scripts": {
+    "start": "node server.js",
+    "start:http": "node http.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "mutation": "stryker run",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5",
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.24.6"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "^8.0.0",
+    "@stryker-mutator/vitest-runner": "^8.0.0",
+    "husky": "^9.0.0",
+    "vitest": "^3.2.4"
+  }
+}
