@@ -4,6 +4,7 @@
   "description": "MCP maison — piloter N comptes Reddit comme un humain (couverture API 100%, multi-comptes, anti-ban).",
   "type": "module",
   "private": true,
+  "license": "MIT",
   "engines": { "node": ">=20" },
   "bin": { "reddit-mcp": "server.js" },
   "scripts": {
