@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "_comment": "Gate MUTATION (posé le 31/07/2026). Ce repo n'avait AUCUNE config alors que les dépendances Stryker y étaient déjà installées : la mutation était donc une INTENTION, jamais un gate. `mutate` = logique PURE uniquement — l'I/O (transport MCP, réseau Reddit) n'est jamais muté (mutants triviaux qui diluent le score). ⚠️ `timeoutMS` explicite OBLIGATOIRE : le défaut (~12 s) fait EXPIRER des runs sur machine chargée, et Stryker compte un EXPIRÉ comme TUÉ ⇒ score GONFLÉ et FAUX.",
+  "testRunner": "vitest",
+  "mutate": ["lib/deps-criticite-pure.js"],
+  "incremental": true,
+  "incrementalFile": "reports/stryker-incremental.json",
+  "coverageAnalysis": "perTest",
+  "concurrency": 3,
+  "timeoutMS": 60000,
+  "reporters": ["clear-text", "progress"],
+  "thresholds": { "high": 100, "low": 95, "break": 95 },
+  "_thresholds_comment": "⚠️ CLIQUET — `break` calé JUSTE SOUS le score mesuré à la pose : il transforme l'acquis en PLANCHER. Il MONTE quand le score monte, il ne redescend JAMAIS pour faire passer un build — si le score tombe, on AJOUTE des tests."
+}
