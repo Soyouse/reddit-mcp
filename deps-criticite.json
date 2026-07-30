@@ -1,0 +1,15 @@
+{
+  "_doc": "CLASSIFICATION DE CRITICITÉ des dépendances du repo (30/07/2026, propagation parc §42.3 depuis agent-social). SOURCE UNIQUE, consommée par `tests/deps-criticite-gate.test.js`. Toute dépendance de TOUT package.json du repo DOIT figurer ici — non classée = ROUGE.",
+  "_doc_classes": "`moteur` = la dépendance DÉTERMINE LA SORTIE livrée (pixels, mesures, encodage) ⇒ épinglage EXACT OBLIGATOIRE (ni ^, ni ~, ni plage). `ordinaire` = elle ne change pas la sortie (transport, validation, outillage de test) ⇒ caret SOUHAITABLE.",
+  "_doc_zero_moteur": "⚠️ AUCUN MOTEUR ICI : reddit-mcp lit et achemine des publications Reddit, il ne fabrique aucun artefact livré. Le gate rend IMPOSSIBLE l'entrée future d'un moteur sur un caret ; sa mécanique est prouvée vivante par un test d'ANTI-DORMANCE (sans quoi un périmètre vide = un gate qui dort).",
+  "moteur": {},
+  "ordinaire": {
+    "@modelcontextprotocol/sdk": "transport MCP : une dérive casse le protocole (BRUYANT, immédiat).",
+    "zod": "validation de schémas : rejette ou accepte, ne fabrique aucun livrable.",
+    "zod-to-json-schema": "conversion de schéma pour la déclaration des outils MCP : une dérive casserait ListTools, donc bruyamment.",
+    "vitest": "harnais de test. Une dérive change le comportement des GATES, pas la sortie du produit — et un gate qui casse est BRUYANT (rouge).",
+    "@stryker-mutator/core": "mutation testing (outillage de gate).",
+    "@stryker-mutator/vitest-runner": "runner Stryker (outillage de gate).",
+    "husky": "hooks git (outillage local)."
+  }
+}
